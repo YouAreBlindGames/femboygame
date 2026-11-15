@@ -1,0 +1,143 @@
+# The script of the game goes in this file.
+
+# Declare characters used by this game. The color argument colorizes the
+# name of the character.
+
+define f = Character("Femboy", color = "#c319ea")
+define d = Character("Doctor", color = "#f90505")
+define t = Character("Dr. Tord", color = "#19ea31")
+define n = Character("Nurse", color = "#198cea")
+define c = Character("Eric Cartman", color = "#eae719")
+define s = Character("Sans", color = "#192aea")
+
+label start:
+
+    play music "haven game music.wav" volume 0.5
+
+    image bg snowdinTown:
+        "bg snowdinTown.png"
+        zoom 4
+
+    image bg eddsworldHouse:
+        "bg eddsworldhouse.jpg"
+        zoom 4
+
+    image bg paddedRoom:
+        "bg paddedRoom.jpg"
+        zoom 3.2
+
+    scene bg paddedRoom
+
+    show femboy unhappy at left
+
+    f "Omg! Where am I!?"
+
+    show doctor regular at right
+
+    d "You have been admitted to this facility."
+    d "People have reported concerning femboy behavior from you..."
+
+    menu:
+        "What makes you say that? UwU":
+            jump better_explenation_vone
+
+        "I admit it... I am very much a femboy...":
+            jump better_explenation
+
+    label better_explenation_vone:
+        d "Saying UwU is one of the symptoms.."
+        jump better_explenation
+
+    label better_explenation:
+
+        show femboy neutral
+        f "I just can't believe this..."
+        d "One of the ways you can bounce back from this is reciving anti-UwU therapy."
+        
+        hide doctor regular
+        show tord smile at right
+
+        t "I have your treatment ready-"
+        t "Why are you looking at me like that?"
+
+        menu:
+            "T-Tord from Eddsworld!?":
+                jump tord_hallucination
+            "I-I'm not looking at you like that... Like what? Hehe":
+                jump safe_option
+
+    label safe_option:
+        f "It's SOOOOOO Snuggle time rn!!"
+        t "Wtf?"
+
+        scene bg eddsworldHouse
+        
+        show femboy unhappy at left
+        show tord smile at right
+
+        t "You are definitely hallucinating..."
+        jump main_point
+
+    label tord_hallucination:
+        t "Oh no.. It seems you're hallucinating.."
+
+        scene bg eddsworldHouse
+        
+        show femboy unhappy at left
+        show tord smile at right
+
+        t "Any other hallucinations?"
+        jump main_point
+
+    label main_point:
+        t "Alright, it seems you have gone into a severe hallucination.."
+        f "Tord- tell me what I need to do!"
+        t "I'm not Tord."
+
+        scene bg paddedRoom
+
+        show femboy unhappy at left
+        hide tord smile
+        show doctor regular at right
+
+        d "Are you okay?"
+        menu:
+            "Yes, of course I'm okay.":
+                jump okay_one
+            "No... I guess not":
+                jump okay_two
+
+
+    label okay_one:
+        f "There's actually nothing wrong with me!!"
+        d "I don't think so.."
+        f "That's so freaking mint UwU!"
+        jump end_demo
+
+    label okay_two:
+        f "I mean... I've been struggling I truly admit."
+        f "Being a femboy isn't easy."
+        d "I agree.."
+        jump end_demo
+
+    label end_demo:
+        hide doctor regular
+        scene bg snowdinTown
+        show femboy neutral at left
+        show cartman happy
+        show sans regular at right
+
+        s "You seem to be in quite the pickle.."
+        s "Sorry but it seems like the adventure ends here for now."
+
+        c "Yeah, sorry man..."
+        f "It's okay!"
+
+        "END FOR NOW OMG I AM SO UNBELIEVABLY TIRED."
+        
+
+
+
+
+
+return
